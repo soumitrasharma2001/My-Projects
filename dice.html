@@ -120,6 +120,7 @@
     }
     let tab=document.body.getElementsByTagName('table')[0].lastElementChild.rows
     const start=()=>{
+        reset()
         let deviation
         let percentage
         let attempts=document.getElementById('num').value
@@ -179,16 +180,10 @@
         for(let i=0;i<tab.length;i++){
             let row=tab[i]
             row.cells[1].innerHTML=result[i]
-        }
-        for(let i=0;i<tab.length;i++){
             deviation=mod(av-result[i])
-            let row=tab[i]
             row.cells[2].innerHTML=deviation
-        }
-        for(let i=0;i<tab.length;i++){
             deviation=mod(av-result[i])
-            percentage=(deviation/av)*100
-            let row=tab[i]
+            percentage=(deviation/av)*100   
             row.cells[3].innerHTML=percentage.toFixed(4)+"%"
         }
     }
@@ -196,13 +191,7 @@
         for(let i=0;i<tab.length;i++){
             let row=tab[i]
             row.cells[1].innerHTML=""
-        }
-        for(let i=0;i<tab.length;i++){
-            let row=tab[i]
             row.cells[2].innerHTML=""
-        }
-        for(let i=0;i<tab.length;i++){
-            let row=tab[i]
             row.cells[3].innerHTML=""
         }
     }</script>
